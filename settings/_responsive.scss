@@ -1,0 +1,29 @@
+////
+/// Responsive Settings
+///
+/// @group settings
+////
+
+/// Enable responsive mode
+/// @type Bool
+$hitman-responsive-mode: true !default;
+
+/// Default breakpoints and aliases for media queries
+/// @type Map
+$hitman-responsive-breakpoints: (
+  palm: 'screen and (max-width: 44.9375em)',
+  lap: 'screen and (min-width: 45em) and (max-width: 63.9375em)',
+  lap-and-up: 'screen and (min-width: 45em)',
+  portable: 'screen and (max-width: 63.9375em)',
+  desk: 'screen and (min-width: 64em)',
+  hidpi: 'screen and (min-resolution: 2dppx)'
+) !default;
+
+/// Delimiter string for the suffixes appended
+/// to responsive objects and utilities
+///
+/// @type String
+///
+/// @example markup - If the default '@' is set
+///   <div class="u-hidden@desk"> ... </div>
+$hitman-responsive-suffix-delimiter: \@ !default;

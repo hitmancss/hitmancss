@@ -1,0 +1,22 @@
+{
+  "name": "hitmancss",
+  "description": "",
+  "version": "0.0.0",
+  "author": "Waldemar Figueroa <walde.fm@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/hitmancss/hitmancss/issues"
+  },
+  "homepage": "https://github.com/hitmancss/hitmancss",
+  "keywords": [
+    "bem",
+    "css",
+    "itcss",
+    "sass",
+    "scss"
+  ],
+  "license": "ISC",
+  "repository": "hitmancss/hitmancss",
+  "devDependencies": {
+    "sassdoc": "^2.1.20"
+  }
+}

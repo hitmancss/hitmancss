@@ -1,0 +1,17 @@
+////
+/// Defaults
+///
+/// Set some global default settings that are globally used through
+/// all framework code. This should be imported before anything
+/// else, or custom values can be defined in another file.
+///
+/// @group settings
+////
+
+/// Base spacing amount
+/// @type Length
+$hitman-base-spacing: 1.5rem !default;
+
+/// Default content flow direction
+/// @type String
+$hitman-base-flow-direction: ltr !default;

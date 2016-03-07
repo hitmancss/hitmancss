@@ -1,0 +1,15 @@
+{
+  "name": "hitmancss",
+  "description": "CSS framework for rapid and deadly front-end development.",
+  "version": "0.0.0",
+  "authors": [
+    "Waldemar Figueroa <walde.fm@gmail.com>"
+  ],
+  "keywords": [
+    "css",
+    "sass",
+    "itcss",
+    "bem"
+  ],
+  "license": "ISC"
+}

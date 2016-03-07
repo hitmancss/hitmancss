@@ -1,0 +1,25 @@
+////
+/// Color Function
+///
+/// Retrieves a color value from an
+/// easy-to-remember alias
+///
+/// @group tools
+////
+
+/// Project colors
+$hitman-settings-colors: (
+  'white': #fff,
+  'black': #000,
+) !default;
+
+/// @require $hitman-settings-colors
+/// @parameter {String} $alias - alias name for the color value
+/// @return {Color} color value
+@function color($alias) {
+  @if map-has-key($hitman-settings-colors, $alias) {
+    @return map-get($hitman-settings-colors, $alias);
+  } @else {
+    @error "A color with an alias of `#{$alias}` isn't defined on `$hitman-settings-colors`.";
+  }
+}

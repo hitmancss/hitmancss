@@ -1,0 +1,35 @@
+////
+/// Text Decoration Utilities
+///
+/// Generates helper classes for granular
+/// assignment of text decoration styles.
+///
+/// @group utilities
+////
+
+/// Text decoration helper classes namespace
+/// @type String
+$hitman-text-decoration-namespace: 'td' !default;
+
+/// Text decorations
+/// @type Map
+$hitman-text-decorations: (
+  // none: none,
+  underline: underline,
+  // overline: overline,
+  // through: line-through,
+) !default;
+
+
+
+
+
+/**
+ * #TEXT-DECORATION
+ */
+@each $alias, $decoration in $hitman-text-decorations {
+  /* Text decoration helper: #{$alias} */
+  .u-#{$hitman-text-decoration-namespace}-#{$alias} {
+    text-decoration: $decoration !important;
+  }
+} // @each

@@ -1,0 +1,39 @@
+////
+/// hitmanSCSS: Font Weight Utilities
+///
+/// Generates helper classes for granular control
+/// of font weight with expressive classes.
+///
+/// @group utilities
+////
+
+/// Font weight helper classes namespace
+/// @type String
+$hitman-font-weight-namespace: 'fw' !default;
+
+/// Font weights
+/// @type Map
+$hitman-font-weights: (
+  // thin:       100,
+  // extralight: 200,
+  // light:      300,
+  normal:        400,
+  // medium:     500,
+  bold:          700,
+  // black:      900,
+) !default;
+
+
+
+
+
+/**
+ * #FONT-WEIGHT
+ */
+@each $alias, $weight in $hitman-font-weights {
+  /* Font weight utility: #{$alias} */
+  .u-#{$hitman-font-weight-namespace}-#{$alias} {
+    font-weight: $weight !important;
+  }
+} // @each
+

@@ -1,0 +1,111 @@
+////
+/// Layout Object
+///
+/// @group objects
+////
+
+/// Space between layout items
+/// @type Length
+/// @require $hitman-base-spacing
+$hitman-layout-gutter: $hitman-base-spacing !default;
+
+/// Layout object modifiers
+///
+/// auto: collapses items width to contents
+/// middle: vertically aligns items to middle
+/// bottom: vertically aligns items to bottom
+/// center: horizontally aligns items to center
+/// right: horizontally aligns items to right
+/// flush: sets gutters to 0, no space between items
+/// rev: reverses source order of items: [4, 3, 2, 1]
+///
+/// @type List
+$hitman-layout-modifiers: (
+  // auto,
+  // middle,
+  // bottom,
+  // center,
+  // right,
+  // flush,
+  // rev,
+) !default;
+
+
+
+
+
+/**
+ * #LAYOUT
+ */
+.o-layout {
+  list-style: none;
+  margin: 0 0 -$hitman-layout-gutter;
+  padding: 0;
+
+  > .o-layout__item {
+    display: inline-block;
+    padding-left: $hitman-layout-gutter;
+    width: 100%;
+    vertical-align: top;
+  }
+}
+
+@if index($hitman-layout-modifiers, 'auto') {
+  .o-layout--auto > .o-layout__item {
+    width: auto;
+  }
+}
+
+@if index($hitman-layout-modifiers, 'middle') {
+  .o-layout--middle > .o-layout__item {
+    vertical-align: middle;
+  }
+}
+
+@if index($hitman-layout-modifiers, 'bottom') {
+  .o-layout--bottom > .o-layout__item {
+    vertical-align: bottom;
+  }
+}
+
+@if index($hitman-layout-modifiers, 'center') {
+  .o-layout--center {
+    text-align: center;
+
+    > .o-layout__item {
+      text-align: left;
+    }
+  }
+}
+
+@if index($hitman-layout-modifiers, 'right') {
+  .o-layout--right {
+    text-align: right;
+
+    > .o-layout__item {
+      text-align: start;
+    }
+  }
+}
+
+@if index($hitman-layout-modifiers, 'flush') {
+  .o-layout--flush {
+    margin-left: 0;
+
+    > .o-layout__item {
+      padding-left: 0;
+    }
+  }
+}
+
+@if index($hitman-layout-modifiers, 'rev') {
+  .o-layout--rev {
+    direction: rtl;
+    text-align: left;
+
+    > .o-layout__item {
+      direction: ltr;
+      text-align: start;
+    }
+  }
+}

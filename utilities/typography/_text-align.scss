@@ -1,0 +1,64 @@
+////
+/// Text align helpers
+///
+/// Align inline content horizontally.
+///
+/// @group utilities
+/// @require $hitman-responsive-breakpoints
+////
+
+/// Text align namespace
+/// @type String
+$hitman-text-align-namespace: 'ta' !default;
+
+/// Enabled text alignment helpers
+/// @type Map
+$hitman-text-align-alignments: (
+  left,
+  right,
+  center,
+  justify,
+) !default;
+
+/// Responsive text alignment helpers
+/// @type Map
+$hitman-text-align-responsive-alignments: (
+  left,
+  right,
+  center,
+  // justify,
+) !default;
+
+/// Excluded breakpoints to create helpers for
+/// @type Map
+$hitman-text-align-excluded-breakpoints: ('hidpi') !default;
+
+
+
+
+
+/**
+ * #TEXT-ALIGN
+ */
+@each $alignment in $hitman-text-align-alignments {
+  .u-#{$hitman-text-align-namespace}-#{$alignment} {
+    text-align: #{$alignment} !important;
+  }
+} // @each
+
+/**
+ * #TEXT-ALIGN-RESPONSIVE
+ */
+@if global-map-exists(hitman-responsive-breakpoints) {
+  @each $alias, $breakpoint in $hitman-responsive-breakpoints {
+    @if not index($hitman-text-align-excluded-breakpoints, $alias) {
+      @media #{$breakpoint} {
+        @each $alignment in $hitman-text-align-responsive-alignments {
+          .u-#{$hitman-text-align-namespace}-#{$alignment}#{$hitman-responsive-suffix-delimiter}#{$alias} {
+            text-align: #{$alignment} !important;
+          }
+        } // @each
+      } // @media
+    } // @if
+  } // @each
+} // @if

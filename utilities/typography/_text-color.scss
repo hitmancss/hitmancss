@@ -1,0 +1,31 @@
+////
+/// Text Color Utilities
+///
+/// Generates helper classes for granular
+/// assignment of colors to text.
+///
+/// @group utilities
+////
+
+/// Type color helper namespace
+/// @type String
+$hitman-text-color-namespace: 'c' !default;
+
+/// Colors to create helpers for.
+/// @type Map
+/// @require $hitman-settings-colors
+$hitman-text-colors: $hitman-settings-colors !default;
+
+
+
+
+
+/**
+ * #TEXT-COLOR
+ */
+@each $alias, $color in $hitman-text-colors {
+  /* Text color helper: #{$alias} */
+  .u-#{$hitman-text-color-namespace}-#{$alias} {
+    color: get-color($alias) !important;
+  }
+} // @each

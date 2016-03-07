@@ -1,0 +1,35 @@
+////
+/// hitmanSCSS: Font Style Utilities
+///
+/// Generates helper classes for granular control
+/// of font style with expressive classes.
+///
+/// @group utilities
+////
+
+/// Font style helper classes namespace
+/// @type String
+$hitman-font-style-namespace: 'fs' !default;
+
+/// Font styles
+/// @type Map
+$hitman-font-styles: (
+  normal: normal,
+  italic: italic,
+  // oblique: oblique,
+) !default;
+
+
+
+
+
+/**
+ * #FONT-STYLE
+ */
+@each $alias, $style in $hitman-font-styles {
+  /* Font style utility: #{$alias} */
+  .u-#{$hitman-font-style-namespace}-#{$alias} {
+    font-style: $style !important;
+  }
+} // @each
+

@@ -1,0 +1,40 @@
+////
+/// Responsive Width Utilities
+///
+/// Create width utilities for defined media query breakpoints
+///
+/// @group utilities
+/// @author Waldemar Figueroa
+////
+
+/// Grids to create breakpoint width helpers for.
+/// @type Map
+$hitman-widths-columns-responsive: (1, 2, 3, 4, 5) !default;
+
+/// Breakpoints to not create helpers for.
+/// @see $hitmancss-responsive-breakpoints
+/// @type Map
+$hitman-widths-columns-excluded-breakpoints: ('hidpi') !default;
+
+
+
+
+
+@if not mixin-exists(hitman-widths) {
+  @error 'Width utilities require `hitmancsss/tools/widths`';
+}
+
+@if not global-variable-exists(hitman-responsive-breakpoints) {
+  @error 'Responsive width utilities require `$hitman-responsive-breakpoints` to be defined with custom breakpoints or for the `hitmancss/settings/responsive` defaults to be imported.';
+}
+
+// Loop over defined breakpoints
+@each $alias, $breakpoint in $hitman-responsive-breakpoints {
+  // Only create classes if breakpoint isn't on skip list
+  @if not index($hitman-widths-columns-excluded-breakpoints, $alias) {
+    /* Width utilities for `#{$alias}` breakpoint */
+    @media #{$breakpoint} {
+      @include hitman-widths($hitman-widths-columns-responsive, $alias);
+    }
+  } // @if
+} // @each

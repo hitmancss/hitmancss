@@ -1,0 +1,34 @@
+////
+/// Text Transform Utilities
+///
+/// Generates helper classes for granular
+/// assignment of text transform styles.
+///
+/// @group utilities
+////
+
+/// Text transform helper classes namespace
+/// @type String
+$hitman-text-transform-namespace: 'tt' !default;
+
+/// Text transforms
+/// @type Map
+$hitman-text-transforms: (
+  uppercase: uppercase,
+  // lowercase: lowercase,
+  // capitalize: capitalize
+) !default;
+
+
+
+
+
+/**
+ * #TEXT-TRANSFORM
+ */
+@each $alias, $transform in $hitman-text-transforms {
+  /* Text Transform Helper: #{$alias} */
+  .u-#{$hitman-text-transform-namespace}-#{$alias} {
+    text-transform: $transform !important;
+  }
+} // @each

@@ -1,0 +1,45 @@
+////
+/// hitmanSCSS: Font Size Utilities
+///
+/// Generates helper classes for granular control
+/// of font sizes with expressive classes.
+///
+/// @group utilities
+////
+
+/// Font size helper classes namespace
+/// @type String
+$hitman-font-size-namespace: 'fz' !default;
+
+/// Default font size scale
+/// @type Map
+$hitman-font-sizes: (
+  giga: 72px,
+  mega: 60px,
+  kilo: 48px,
+
+  alpha:   36px,
+  beta:    30px,
+  gamma:   24px,
+  delta:   21px,
+  epsilon: 18px,
+  zeta:    16px,
+
+  milli: 14px,
+  nano:  12px,
+  pico:  10px,
+) !default;
+
+
+
+
+
+/**
+ * #FONT-SIZE
+ */
+@each $alias, $size in $hitman-font-sizes {
+  /* Font size utility: #{$alias} */
+  .u-#{$hitman-font-size-namespace}-#{$alias} {
+    font-size: $size !important;
+  }
+} // @each

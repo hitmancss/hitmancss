@@ -1,0 +1,20 @@
+////
+/// Width Utilities
+///
+/// Generates helper classes for responsive control
+/// of content width. This basically creates any kind
+/// of custom grid needed.
+///
+/// @group utilities
+/// @author Waldemar Figueroa
+////
+
+/// Default width column grids
+/// @type Map
+$hitman-widths-columns: (1, 2, 3, 4, 5) !default;
+
+@if not mixin-exists(hitman-widths) {
+  @error 'Width utilities require `hitmancss-widths/tools.widths`';
+}
+
+@include hitman-widths($hitman-widths-columns);

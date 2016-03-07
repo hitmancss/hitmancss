@@ -1,0 +1,42 @@
+////
+/// Split Object
+///
+/// Split content lists into left and right columns,
+/// like price lists, glossaries, and others.
+///
+/// Example                      Page 3
+/// Another example              Page 7
+/// ...
+///
+/// @group objects
+///
+/// @example markup
+///   <dl class="o-split">
+///     <dt class="o-split__title"> ... </dt>
+///     <dd> ... </dt>
+///   </dl>
+///
+///   <div class="o-split">
+///     <span class="o-split__title"> ... </span>
+///     <span> ... </span>
+///   </div>
+////
+
+
+
+
+
+/**
+ * #SPLIT
+ */
+.o-split {
+  margin: 0;
+  list-style: none;
+  text-align: end;
+}
+
+.o-split__title {
+  clear: left;
+  float: left;
+  text-align: start;
+}

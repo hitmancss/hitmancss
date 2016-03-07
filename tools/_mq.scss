@@ -1,0 +1,32 @@
+////
+/// Media Query Mixin
+///
+/// @group tools
+////
+
+/// Retrieves breakpoint from alias and builds
+/// media query with CSS passed to mixin as content
+///
+/// @parameter {String} $alias - breakpoint alias
+/// @content Styles to place inside media query
+/// @output Built media query with breakpoint and content
+///
+/// @example scss - Mixin usage
+///     @include mq('breakpoint') {
+///         text-align: center;
+///     }
+///
+/// @example css - CSS output
+///     @media screen and (min-width: 720px) {
+///         text-align: center;
+///     }
+
+@mixin mq($alias) {
+  @if map-has-key($hitman-responsive-breakpoints, $alias) {
+    @media #{map-get($hitman-responsive-breakpoints, $alias)} {
+      @content;
+    }
+  } @else {
+    @error "Media query breakpoint with an alias of `#{$alias}` isn't defined on `$hitman-responsive-breakpoints`.";
+  }
+}

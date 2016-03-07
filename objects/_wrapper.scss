@@ -1,0 +1,59 @@
+////
+/// Wrapper Object
+///
+/// @group objects
+////
+
+/// Object's side spacing
+/// @type Length
+$hitman-wrapper-spacing: $hitman-base-spacing !default;
+
+/// Default wrapper maximum width
+/// @type Length
+$hitman-wrapper-max-width: 64rem !default; // 64 * 16px = 1,024px
+
+/// Wrapper modifiers
+///
+/// @example scss
+///   $hitman-wrapper-modifiers: (
+///     small: 50rem,
+///   );
+///
+/// @example css
+///   .o-wrapper--small {
+///     max-width: 50rem;
+///   }
+$hitman-wrapper-modifiers: () !default;
+
+
+
+
+
+/**
+ * #Wrapper
+ *
+ * Center content and contain it to a maximum width.
+ *
+ * 1. Center it as a block element
+ * 2. Limit content from touching the edge of smaller screens
+ * 3. Contain contents to this width, but allow it to shrink down
+ *    in smaller screens.
+ */
+.o-wrapper {
+  /* [1] */
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  /* [2] */
+  padding-right: $hitman-wrapper-spacing;
+  padding-left: $hitman-wrapper-spacing;
+  /* [3] */
+  max-width: $hitman-wrapper-max-width;
+}
+
+@each $modifier, $max-width in $hitman-wrapper-modifiers {
+  /* Wrapper Modifier: #{$modifier} */
+  .o-wrapper--#{$modifier} {
+    max-width: $max-width;
+  }
+}
