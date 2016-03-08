@@ -1,0 +1,54 @@
+////
+/// Base typography styles
+///
+/// @group base
+////
+
+/// Headings should be just a bit larger than the rest of
+/// the body text to offer a bit of differentiation.
+/// @type Length
+$hitman-headings-base-font-size: 1.25em !default;
+
+
+
+
+
+/**
+ * #SHARED
+ *
+ * Better vertical rhythm with consistent bottom spacing
+ */
+
+h1, h2, h3, h4, h5, h6,
+ul, ol, dl,
+blockquote, p, address,
+hr,
+table,
+fieldset, figure,
+pre {
+  margin-bottom: $hitman-base-spacing;
+}
+
+/**
+ * #HEADINGS
+ *
+ * Separate headings hierarchy from their styling. Use custom components and/or
+ * utility classes to style specifically to your project's design requirements.
+ * See http://csswizardry.com/2016/02/managing-typography-on-large-apps/
+ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: $hitman-headings-base-font-size;
+}
+
+/**
+ * #LISTS
+ *
+ * Unstyled lists are used more often than not, so remove bulleted styles
+ * from lists. Add more refined styling with objects or components.
+ */
+
+ul,
+dl {
+  list-style: none;
+}
