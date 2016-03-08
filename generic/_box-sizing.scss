@@ -1,0 +1,19 @@
+////
+/// @group generic
+/// @link paulirish.com/2012/box-sizing-border-box-ftw
+/// @link css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+////
+
+/**
+ * #BOX-SIZING
+ */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
