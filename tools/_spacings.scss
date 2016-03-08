@@ -1,0 +1,73 @@
+////
+/// Spacings Generator Mixin
+/// @group tools
+////
+
+/// Spacing directions and their class aliases
+/// @type Map
+$hitman-spacing-directions: (
+  t: (top),
+  r: (right),
+  b: (bottom),
+  l: (left),
+  v: (top, bottom),
+  h: (right, left),
+) !default;
+
+/// Spacings Mixin
+/// ---
+/// @param {String} $spacing-type - spacing type, `margin` or `padding` only
+/// @param {Map} $modifiers - utility modifiers, key alias: length, ...)`
+/// ---
+/// @requires $hitman-base-spacing
+/// @requires $hitman-margin-namespace
+/// @requires $hitman-padding-namespace
+/// @requires $hitman-spacing-directions
+/// ---
+/// @throws if spacing is not supported
+/// @throws if modifiers parameter is not a map
+
+@mixin hitman-spacings($spacing-type, $modifiers: ()) {
+  // Error check: if spacing type is not supported
+  @if $spacing-type != 'margin' and $spacing-type != 'padding' {
+    @error 'Spacing type of `#{$spacing-type}` is not supported, only `margin` and `padding` types are accepted.';
+  }
+
+  // Set spacing type alias
+  $spacing-type-alias: '';
+  @if $spacing-type == 'margin' {
+    $spacing-type-alias: $hitman-margin-namespace;
+  } @elseif $spacing-type == 'padding' {
+    $spacing-type-alias: $hitman-padding-namespace;
+  }
+
+  // Base utility class
+  .u-#{$spacing-type-alias} {
+    #{$spacing-type}: $hitman-base-spacing !important;
+  }
+
+  // Loop and create utility modifiers, if any
+  @each $modifier-alias, $modifier-length in $modifiers {
+    .u-#{$spacing-type-alias}--#{$modifier-alias} {
+      #{$spacing-type}: $modifier-length !important;
+    } // .u
+  } // @each
+
+  // Loop and create classes for each direction
+  @each $direction-alias, $directions in $hitman-spacing-directions {
+    .u-#{$spacing-type-alias}#{$direction-alias} {
+      @each $direction in $directions {
+        #{$spacing-type}-#{$direction}: $hitman-base-spacing !important;
+      } // @each
+    } // .u
+
+    // Create modifiers
+    @each $modifier-alias, $modifier-length in $modifiers {
+      .u-#{$spacing-type-alias}#{$direction-alias}--#{$modifier-alias} {
+        @each $direction in $directions {
+          #{$spacing-type}-#{$direction}: $modifier-length !important;
+        } // @each
+      } // .u
+    } // @each
+  } // @each
+} // @mixin

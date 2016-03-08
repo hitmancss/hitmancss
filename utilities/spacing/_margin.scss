@@ -1,0 +1,29 @@
+////
+/// @requires $hitman-base-spacing
+/// @requires {mixin} hitman-spacings
+////
+
+// Error check
+@if not mixin-exists(hitman-spacings) {
+  @error 'Spacing utilities require `hitmancss/tools/spacings`';
+}
+
+/// @type String
+$hitman-margin-namespace:  'm' !default;
+
+/// @type Map
+$hitman-margin-modifiers: (
+  // tiny:  $hitman-base-spacing--tiny,
+  // small: $hitman-base-spacing--small,
+  // large: $hitman-base-spacing--large,
+  // huge:  $hitman-base-spacing--huge,
+) !default;
+
+
+
+
+
+/**
+ * #SPACING-MARGIN
+ */
+@include hitman-spacings('margin', $hitman-margin-modifiers);

@@ -1,0 +1,26 @@
+/// Padding utilities class namespace
+/// @type String
+$hitman-padding-namespace:  'p' !default;
+
+/// Padding utilities modifiers
+/// @type Map
+$hitman-padding-modifiers: (
+  // tiny:  $hitman-base-spacing--tiny,
+  // small: $hitman-base-spacing--small,
+  // large: $hitman-base-spacing--large,
+  // huge:  $hitman-base-spacing--huge,
+) !default;
+
+
+
+
+
+// Error check
+@if not mixin-exists(hitman-spacings) {
+  @error 'Spacing utilities require `hitmancss/tools/spacings`';
+}
+
+/**
+ * #SPACING-PADDING
+ */
+@include hitman-spacings('padding', $hitman-padding-modifiers);
