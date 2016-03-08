@@ -1,0 +1,46 @@
+////
+/// Global page styles
+///
+/// @group base
+////
+
+/// Base page background color
+/// @type Color
+$hitman-base-body-background: #fff !default;
+
+/// Base page text color
+/// @type Color
+$hitman-base-font-color: #222 !default;
+
+/// Base page font family
+/// @type List
+$hitman-base-font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif !default;
+
+/// Base line height, preferably unitless
+/// @type Number
+$hitman-base-line-height: 1.5 !default;
+
+
+
+
+
+/**
+ * #PAGE
+ *
+ * 1. Global page styling
+ * 2. More consistent font rendering between OS X and other OSs,
+ *    but leave retina screens alone, they purty.
+ */
+
+html {
+  /* 1 */
+  background-color: $hitman-base-body-background;
+  color: $hitman-base-font-color;
+  font-family: $hitman-base-font-family;
+  line-height: $hitman-base-line-height;
+  /* 2 */
+  @media screen and (max-resolution: 1.25dppx) {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+}
