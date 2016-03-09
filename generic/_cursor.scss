@@ -1,0 +1,57 @@
+////
+/// Better mouse cursors
+///
+/// @group generic
+////
+
+/**
+ * #CURSOR
+ *
+ * The default's I-beam cursor when hovering over text usually indicates in other
+ * types of software that the text is editable. Since this isn't the case for
+ * most web text, force the default cursor instead.
+ */
+
+html,
+body {
+  cursor: default;
+}
+
+/**
+ * Encourage code copying and sharing though, regardless if it's editable or not.
+ */
+
+code {
+  cursor: text;
+}
+
+/**
+ * Use the pointer cursor only on clickable native elements.
+ * This extends normalize.css by adding a few more clickable elements.
+ */
+
+a,
+label,
+select,
+input[type="checkbox"],
+input[type="radio"],
+input[type="image"],
+input[type="file"] {
+  cursor: pointer;
+}
+
+/**
+ * Use not-allowed cursor on disabled elements, mostly on form controls.
+ *
+ * 1. Override normalize.css default cursor for disabled inputs.
+ */
+
+html input,
+button,
+select,
+textarea {
+  &[disabled],
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
