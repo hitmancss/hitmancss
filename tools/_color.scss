@@ -8,11 +8,13 @@
 ////
 
 /// Project colors
+/// @type Map
 $hitman-settings-colors: (
   'white': #fff,
   'black': #000,
 ) !default;
 
+/// Color fetching function
 /// @require $hitman-settings-colors
 /// @parameter {String} $alias - alias name for the color value
 /// @return {Color} color value

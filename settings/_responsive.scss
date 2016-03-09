@@ -8,6 +8,14 @@
 /// @type Bool
 $hitman-responsive-mode: true !default;
 
+/// Delimiter string for the suffixes appended
+/// to responsive objects and utilities
+///
+/// @type String
+/// @example markup - If the default '@' is set
+///   <div class="u-hidden@desk"> ... </div>
+$hitman-responsive-suffix-delimiter: \@ !default;
+
 /// Default breakpoints and aliases for media queries
 /// @type Map
 $hitman-responsive-breakpoints: (
@@ -18,12 +26,3 @@ $hitman-responsive-breakpoints: (
   desk: 'screen and (min-width: 64em)',
   hidpi: 'screen and (min-resolution: 2dppx)'
 ) !default;
-
-/// Delimiter string for the suffixes appended
-/// to responsive objects and utilities
-///
-/// @type String
-///
-/// @example markup - If the default '@' is set
-///   <div class="u-hidden@desk"> ... </div>
-$hitman-responsive-suffix-delimiter: \@ !default;

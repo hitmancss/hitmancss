@@ -2,7 +2,6 @@
 /// Widths Generator Mixin
 ///
 /// @group utilities
-/// @author Waldemar Figueroa
 ////
 
 /// Width classes namespace
@@ -17,7 +16,6 @@ $hitman-widths-delimiter: \/ !default;
 ///
 /// @parameter {List} $hitman-width-columns - desired grid columns
 /// @parameter {String} $breakpoint [null] - responsive breakpoint the classes are under
-///
 
 @mixin hitman-widths($hitman-widths-columns, $breakpoint: null) {
   $delimiter: if(global-variable-exists(hitman-responsive-suffix-delimiter), \@, $hitman-responsive-suffix-delimiter);

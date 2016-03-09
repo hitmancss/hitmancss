@@ -4,7 +4,6 @@
 /// Create width utilities for defined media query breakpoints
 ///
 /// @group utilities
-/// @author Waldemar Figueroa
 ////
 
 /// Grids to create breakpoint width helpers for.
@@ -21,14 +20,16 @@ $hitman-widths-columns-excluded-breakpoints: ('hidpi') !default;
 
 
 @if not mixin-exists(hitman-widths) {
-  @error 'Width utilities require `hitmancsss/tools/widths`';
+  @error 'Width utilities require `hitmancss/tools/widths`';
 }
 
 @if not global-variable-exists(hitman-responsive-breakpoints) {
   @error 'Responsive width utilities require `$hitman-responsive-breakpoints` to be defined with custom breakpoints or for the `hitmancss/settings/responsive` defaults to be imported.';
 }
 
-// Loop over defined breakpoints
+/**
+ * #WIDTHS-RESPONSIVE
+ */
 @each $alias, $breakpoint in $hitman-responsive-breakpoints {
   // Only create classes if breakpoint isn't on skip list
   @if not index($hitman-widths-columns-excluded-breakpoints, $alias) {

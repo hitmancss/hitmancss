@@ -6,7 +6,6 @@
 /// of custom grid needed.
 ///
 /// @group utilities
-/// @author Waldemar Figueroa
 ////
 
 /// Default width column grids
@@ -14,7 +13,14 @@
 $hitman-widths-columns: (1, 2, 3, 4, 5) !default;
 
 @if not mixin-exists(hitman-widths) {
-  @error 'Width utilities require `hitmancss-widths/tools.widths`';
+  @error 'Width utilities require `hitmancss/tools/widths`';
 }
 
+
+
+
+
+/**
+ * #WIDTHS
+ */
 @include hitman-widths($hitman-widths-columns);
