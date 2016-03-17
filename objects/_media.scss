@@ -1,0 +1,125 @@
+////
+/// @group objects
+////
+
+/// If enabled, object will use flexbox for its layout, and
+/// enable the use of the vertical alignment modifiers.
+/// @type Bool
+$hitman-media-enable-flexbox: true !default;
+
+/// Enabled media object modifiers
+/// @type List
+$hitman-media-modifiers: (
+  bottom,
+  middle,
+  flush,
+  rev,
+) !default;
+
+/// Modifiers for spacing between object's elements
+/// @type Map
+$hitman-media-gutters: (
+  tiny: $hitman-base-spacing--tiny,
+  small: $hitman-base-spacing--small,
+  large: $hitman-base-spacing--large,
+  huge: $hitman-base-spacing--huge,
+) !default;
+
+
+
+/**
+ * #MEDIA
+ */
+.o-media {
+  @if $hitman-media-enable-flexbox == true {
+    display: flex;
+    align-items: flex-start;
+  } @else {
+    display: block;
+    overflow: hidden;
+  }
+}
+
+.o-media__side {
+  margin-right: $hitman-base-spacing;
+
+  @if not $hitman-media-enable-flexbox == true {
+    float: left;
+
+    > img {
+      display: block;
+    }
+  }
+}
+
+.o-media__body {
+  @if $hitman-media-enable-flexbox == true {
+    flex: 1;
+  }
+
+  &,
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+@if index($hitman-media-modifiers, 'bottom') and $hitman-media-enable-flexbox == true {
+  .o-media--bottom {
+    align-items: flex-end;
+  }
+} // @if
+
+@if index($hitman-media-modifiers, 'middle') and $hitman-media-enable-flexbox == true {
+  .o-media--middle {
+    align-items: center;
+  }
+} // @if
+
+@if index($hitman-media-modifiers, 'rev') {
+  .o-media--rev {
+    > .o-media__side {
+      margin-right: 0;
+      margin-left: $hitman-base-spacing;
+
+      @if $hitman-media-enable-flexbox == true {
+        order: 1;
+      } @else {
+        float: right;
+      }
+    }
+  }
+} // @if
+
+@if index($hitman-media-modifiers, 'flush') {
+  .o-media--flush {
+    > .o-media__side {
+      margin-right: 0;
+    }
+
+    @if index($hitman-media-modifiers, 'rev') {
+      &.o-media--rev {
+        > .o-media__side {
+          margin-left: 0;
+        }
+      }
+    } // @if
+  }
+} // @if
+
+// Loop and create gutter modifiers
+@each $alias, $gutter in $hitman-media-gutters {
+  /* Media object gutter mofidier: #{$alias} */
+  .o-media--#{$alias} {
+    > .o-media__side {
+      margin-right: $gutter;
+    }
+
+    @if index($hitman-media-modifiers, 'rev') {
+      &.o-media--rev {
+        > .o-media__side {
+          margin-left: $gutter;
+        }
+      }
+    } // @if
+  }
+} // @each
