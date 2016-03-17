@@ -18,7 +18,7 @@ $hitman-widths-delimiter: \/ !default;
 /// @parameter {String} $breakpoint [null] - responsive breakpoint the classes are under
 
 @mixin hitman-widths($hitman-widths-columns, $breakpoint: null) {
-  $delimiter: if(global-variable-exists(hitman-responsive-suffix-delimiter), \@, $hitman-responsive-suffix-delimiter);
+  $delimiter: if(global-variable-exists(hitman-responsive-suffix-delimiter), $hitman-responsive-suffix-delimiter, \@);
   $responsive-suffix: if($breakpoint, $delimiter + $breakpoint, null);
 
   // Loop through each defined column, this number is the fraction denominator
