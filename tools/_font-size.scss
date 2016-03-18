@@ -1,0 +1,51 @@
+////
+/// Font Size Function
+///
+/// @group tools
+////
+
+/// Default font size scale.
+///
+/// This scale should be in pixels. Use utility functions to
+/// convert these to `em` in the context it's used.
+///
+/// @link https://css-tricks.com/rem-global-em-local/
+/// @type Map
+$hitman-font-size-scale: (
+  giga: 72px,
+  mega: 60px,
+  kilo: 48px,
+
+  alpha:   36px,
+  beta:    30px,
+  gamma:   24px,
+  delta:   21px,
+  epsilon: 18px,
+  zeta:    16px,
+
+  milli: 14px,
+  nano:  12px,
+  pico:  10px,
+) !default;
+
+/// Retrieves saved font size from an easy-to-remember alias.
+///
+/// @parameter {String} $alias - font size alias
+///
+/// @example scss - Function usage
+///     .c-heading {
+///         font-size: fz('alpha');
+///     }
+///
+/// @example css - CSS output
+///     .c-heading {
+///         font-size: 36px;
+///     }
+
+@function fz($alias) {
+  @if map-has-key($hitman-font-size-scale, $alias) {
+    @return map-get($hitman-font-size-scale, $alias);
+  } @else {
+    @error "Font size with an alias of `#{$alias}` isn't defined on `$hitman-font-size-scale`.";
+  }
+}

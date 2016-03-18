@@ -11,9 +11,13 @@
 /// @type String
 $hitman-font-size-namespace: 'fz' !default;
 
-/// Default font size scale
+/// Default font size scale.
+///
+/// This scale should be in pixels. Use utility functions to
+/// convert these to `em` in the context it's used.
+///
 /// @type Map
-$hitman-font-sizes: (
+$hitman-font-size-scale: (
   giga: 72px,
   mega: 60px,
   kilo: 48px,
@@ -37,7 +41,7 @@ $hitman-font-sizes: (
 /**
  * #FONT-SIZE
  */
-@each $alias, $size in $hitman-font-sizes {
+@each $alias, $size in $hitman-font-size-scale {
   /* Font size utility: #{$alias} */
   .u-#{$hitman-font-size-namespace}-#{$alias} {
     font-size: $size !important;
