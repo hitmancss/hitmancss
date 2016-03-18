@@ -10,20 +10,22 @@ $hitman-media-enable-flexbox: true !default;
 /// Enabled media object modifiers
 /// @type List
 $hitman-media-modifiers: (
-  bottom,
-  middle,
-  flush,
-  rev,
+  // bottom,
+  // middle,
+  // flush,
+  // rev,
 ) !default;
 
 /// Modifiers for spacing between object's elements
 /// @type Map
 $hitman-media-gutters: (
-  tiny: $hitman-base-spacing--tiny,
-  small: $hitman-base-spacing--small,
-  large: $hitman-base-spacing--large,
-  huge: $hitman-base-spacing--huge,
+  // tiny: $hitman-base-spacing--tiny,
+  // small: $hitman-base-spacing--small,
+  // large: $hitman-base-spacing--large,
+  // huge: $hitman-base-spacing--huge,
 ) !default;
+
+
 
 
 
