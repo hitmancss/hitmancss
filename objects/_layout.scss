@@ -9,6 +9,15 @@
 /// @require $hitman-base-spacing
 $hitman-layout-gutter: $hitman-base-spacing !default;
 
+/// Modify space between layout items
+/// @type Map
+$hitman-layout-gutter-modifiers: (
+  // tiny: $hitman-base-spacing--tiny,
+  // small: $hitman-base-spacing--small,
+  // large: $hitman-base-spacing--large,
+  // huge: $hitman-base-spacing--huge,
+) !default;
+
 /// Layout object modifiers
 ///
 /// auto: collapses items width to contents
@@ -47,6 +56,17 @@ $hitman-layout-modifiers: (
     padding-left: $hitman-layout-gutter;
     width: 100%;
     vertical-align: top;
+  }
+}
+
+// Create gutter modifiers
+@each $alias, $gutter in $hitman-layout-gutter-modifiers {
+  .o-layout--#{$alias} {
+    margin-left: (-$gutter);
+
+    > .o-layout__item {
+      padding-left: $gutter;
+    }
   }
 }
 
