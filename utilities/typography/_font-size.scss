@@ -41,9 +41,27 @@ $hitman-font-size-scale: (
 /**
  * #FONT-SIZE
  */
-@each $alias, $size in $hitman-font-size-scale {
-  /* Font size utility: #{$alias} */
-  .u-#{$hitman-font-size-namespace}-#{$alias} {
+@each $fz-alias, $size in $hitman-font-size-scale {
+  /* Font size utility: #{$fz-alias} */
+  .u-#{$hitman-font-size-namespace}-#{$fz-alias} {
     font-size: $size !important;
   }
 } // @each
+
+// If breakpoints are defined
+@if global-map-exists(hitman-responsive-breakpoints) {
+  // Loop through each breakpoint
+  @each $mq-alias, $breakpoint in $hitman-responsive-breakpoints {
+    // Only create classes if breakpoint isn't on skip list
+    @if not index($hitman-font-size-excluded-breakpoints, $mq-alias) {
+      @media #{$breakpoint} {
+        @each $fz-alias, $size in $hitman-font-size-scale {
+          /* Font size utility: #{$fz-alias}@#{$mq-alias} */
+          .u-#{$hitman-font-size-namespace}-#{$fz-alias}#{$hitman-responsive-suffix-delimiter}#{$mq-alias} {
+            font-size: $size !important;
+          }
+        } // @each
+      } // @media
+    } // @if
+  } // @each
+} // @if
