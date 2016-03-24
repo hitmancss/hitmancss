@@ -26,6 +26,6 @@ $hitman-text-colors: $hitman-settings-colors !default;
 @each $alias, $color in $hitman-text-colors {
   /* Text color helper: #{$alias} */
   .u-#{$hitman-text-color-namespace}-#{$alias} {
-    color: get-color($alias) !important;
+    color: color($alias) !important;
   }
 } // @each
