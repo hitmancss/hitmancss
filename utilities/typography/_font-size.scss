@@ -34,6 +34,11 @@ $hitman-font-size-scale: (
   pico:  10px,
 ) !default;
 
+/// Breakpoints to not create helpers for.
+/// @see $hitmancss-responsive-breakpoints
+/// @type List
+$hitman-font-size-excluded-breakpoints: ('hidpi') !default;
+
 
 
 
