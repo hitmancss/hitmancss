@@ -33,31 +33,23 @@ $hitman-media-gutters: (
  * #MEDIA
  */
 .o-media {
-  @if $hitman-media-enable-flexbox == true {
-    display: flex;
-    align-items: flex-start;
-  } @else {
-    display: block;
-    overflow: hidden;
-  }
+  display: block;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
 }
 
 .o-media__side {
+  float: left;
   margin-right: $hitman-base-spacing;
 
-  @if not $hitman-media-enable-flexbox == true {
-    float: left;
-
-    > img {
-      display: block;
-    }
+  > img {
+    display: block;
   }
 }
 
 .o-media__body {
-  @if $hitman-media-enable-flexbox == true {
-    flex: 1;
-  }
+  flex: 1 1 auto;
 
   &,
   > :last-child {
@@ -80,14 +72,10 @@ $hitman-media-gutters: (
 @if index($hitman-media-modifiers, 'rev') {
   .o-media--rev {
     > .o-media__side {
+      float: right;
       margin-right: 0;
       margin-left: $hitman-base-spacing;
-
-      @if $hitman-media-enable-flexbox == true {
-        order: 1;
-      } @else {
-        float: right;
-      }
+      order: 1;
     }
   }
 } // @if
